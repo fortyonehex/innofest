@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balls</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+        <script src="js.cookie.min.js"></script>
+    </head>
+    <body>
+        <div class="bar header">
+            <div class="title-wrapper">
+                <div class="title">
+                    <a href="#">
+                        <h1>WayVision</h1>
+                    </a>
+                </div>
+            </div>
+            <a ontouchend="pee()" class="settings-link">
+                <svg id="settings-cog" class="settings-cog visible" fill="#fff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><path d="M39.139,26.282C38.426,25.759,38,24.919,38,24.034s0.426-1.725,1.138-2.247l3.294-2.415	c0.525-0.386,0.742-1.065,0.537-1.684c-0.848-2.548-2.189-4.872-3.987-6.909c-0.433-0.488-1.131-0.642-1.728-0.38l-3.709,1.631	c-0.808,0.356-1.749,0.305-2.516-0.138c-0.766-0.442-1.28-1.23-1.377-2.109l-0.446-4.072c-0.071-0.648-0.553-1.176-1.191-1.307	c-2.597-0.531-5.326-0.54-7.969-0.01c-0.642,0.129-1.125,0.657-1.196,1.308l-0.442,4.046c-0.097,0.88-0.611,1.668-1.379,2.11	c-0.766,0.442-1.704,0.495-2.515,0.138l-3.729-1.64c-0.592-0.262-1.292-0.11-1.725,0.377c-1.804,2.029-3.151,4.35-4.008,6.896	c-0.208,0.618,0.008,1.301,0.535,1.688l3.273,2.4C9.574,22.241,10,23.081,10,23.966s-0.426,1.725-1.138,2.247l-3.294,2.415	c-0.525,0.386-0.742,1.065-0.537,1.684c0.848,2.548,2.189,4.872,3.987,6.909c0.433,0.489,1.133,0.644,1.728,0.38l3.709-1.631	c0.808-0.356,1.748-0.305,2.516,0.138c0.766,0.442,1.28,1.23,1.377,2.109l0.446,4.072c0.071,0.648,0.553,1.176,1.191,1.307	C21.299,43.864,22.649,44,24,44c1.318,0,2.648-0.133,3.953-0.395c0.642-0.129,1.125-0.657,1.196-1.308l0.443-4.046	c0.097-0.88,0.611-1.668,1.379-2.11c0.766-0.441,1.705-0.493,2.515-0.138l3.729,1.64c0.594,0.263,1.292,0.111,1.725-0.377	c1.804-2.029,3.151-4.35,4.008-6.896c0.208-0.618-0.008-1.301-0.535-1.688L39.139,26.282z M24,31c-3.866,0-7-3.134-7-7s3.134-7,7-7	s7,3.134,7,7S27.866,31,24,31z"/></svg>
+                <svg id="settings-map" class="settings-cog invisible" xmlns="http://www.w3.org/2000/svg" fill="#fff" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve">    <g>        <path d="M20,6.263l15,3.529v40.016l-15-2.647V6.263 M19.001,4.001c-0.224,0-0.443,0.075-0.622,0.216C18.14,4.406,18,4.695,18,5.001   v43c0,0.485,0.348,0.9,0.826,0.984l17,3c0.058,0.011,0.116,0.016,0.174,0.016c0.233,0,0.461-0.082,0.643-0.234   C36.869,51.577,37,51.296,37,51.001v-42c0-0.464-0.319-0.867-0.771-0.974l-17-4C19.153,4.009,19.077,4.001,19.001,4.001   L19.001,4.001z"/>        <g>            <path d="M54.584,2.189c-0.261-0.188-0.597-0.241-0.901-0.137l-18,6C35.275,8.188,35,8.57,35,9.001v42    c0,0.33,0.163,0.639,0.436,0.825c0.168,0.115,0.366,0.175,0.564,0.175c0.123,0,0.245-0.022,0.362-0.068l18-7    C54.747,44.783,55,44.413,55,44.001v-41C55,2.679,54.846,2.378,54.584,2.189z"/>            <path d="M18.783,4.024l-18,4C0.326,8.127,0,8.532,0,9.001v43c0,0.304,0.138,0.59,0.375,0.78c0.179,0.144,0.4,0.22,0.625,0.22    c0.072,0,0.145-0.008,0.217-0.023l18-4C19.674,48.875,20,48.469,20,48.001v-43c0-0.304-0.138-0.59-0.375-0.78    C19.39,4.031,19.08,3.961,18.783,4.024z"/>        </g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    <g>    </g>    </svg>
+            </a>
+        </div>
+        <div class="content">
+            <div id="map"></div>
+        </div>
+        <div class="content-settings invisible">
+            <div class="whatever main" id="main">
+                <h3>Account Settings</h3>
+                <p>
+                    Password: <span id="password">****</span><br>
+                    <button id="password_show">Show</button>
+                </p>
+                <p>
+                    Address: <span id="address">**************</span><br>
+                    <button id="address_show">Show</button> <button id="address_change">Change</button>
+                </p>
+                <p>
+                    Emergency Number: <span id="tel">**** 1255</span><br>
+                    <button id="tel_show">Show</button> <button id="tel_change">Change</button>
+                </p>
+            </div>
+            <div class="whatever invisible address_change" id="address_chng">
+                <h3>Change Address</h3>
+                <label for="naddr">New address: </label><br>
+                <input type="text" id="naddr" name="naddr"><br>
+                <label for="raddr">Retype address: </label><br>
+                <input type="text" id="raddr" name="raddr"><br>
+                <label for="pass">Password: </label><br>
+                <input type="text" id="pass_addr" name="pass"><br>
+                <br>
+                <p id="addr_error" class="invisible" style="color:red;">Password incorrect.</p>
+                <button id="address_submit">Submit</button>
+                <button id="back1">Back</button>
+            </div>
+            <div class="whatever invisible tel_change" id="tel_chng">
+                <h3>Change Phone Number</h3>
+                <label for="ntel">New phone number: </label><br>
+                <input type="text" id="ntel" name="ntel"><br>
+                <label for="rtel">Retype phone number: </label><br>
+                <input type="text" id="rtel" name="rtel"><br>
+                <label for="pass">Password: </label><br>
+                <input type="text" id="pass_tel" name="pass"><br>
+                <br>
+                <p id="tel_error" class="invisible" style="color:red;">Password incorrect.</p>
+                <button id="tel_submit">Submit</button>
+                <button id="back2">Back</button>
+            </div>
+        </div>
+        <div class="bar footer">
+            <a href="#" id="home-button" target="_blank">
+                <div class="home-button">
+                    <h2>home</h2>
+                </div>
+            </a>
+            <a id="help-me">
+                <div class="help-me">
+                    <h2>SOS</h2>
+                </div>
+            </a>
+        </div>
+        <script src="map.js"></script>
+        <script src="settings.js"></script>
+        <a style="visibility:none" id="call-the-police" href="tel:8014 1255"></a>
+    </body>
+</html>

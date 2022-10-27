@@ -1,0 +1,158 @@
+body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 2.5vh;
+}
+
+h1 {
+    font-size: 4vh;
+    margin: 0px;
+}
+
+.bar {
+    width: 100vw;
+    background-color: #333;
+    position: fixed;
+    z-index: 99999;
+    user-select: none;
+}
+
+.header {
+    height: 10vh;
+    left: 0px;
+    top: 0px;
+}
+
+.content {
+    height: 75vh;
+    width: 100vw;
+    background-color: lightgray;
+    left: 0px;
+    top: 10vh;
+    position: fixed;
+}
+
+.content-settings {
+    height: 90vh;
+    width: 100vw;
+    background-color: lightgray;
+    left: 0px;
+    top: 10vh;
+    position: fixed;
+}
+
+.footer {
+    height: 15vh;
+    left: 0px;
+    bottom: 0px;
+}
+
+.home-button {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 50%;
+    margin: 0px;
+    background-color: blue;
+}
+
+.help-me {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    width: 50%;
+    background-color: red;
+}
+
+a {
+    display: inline;
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.settings-cog {
+    height: 6vh;
+    width: 6vh;
+    right: 5vw;
+    position: absolute;
+}
+
+.settings-map {
+    right: 5vw;
+    position: absolute;
+}
+
+.settings-link {
+    position: absolute;
+    top: 2vh;
+    right: 10vw;
+}
+
+.title-wrapper {
+    width: 80%;
+}
+
+.title {
+    color: white;
+    padding-top: 2vh;
+    text-align: center;
+}
+
+#map {
+    width: 100vw;
+    height: 75vh;
+    transform: scale(3)
+}
+
+h2 {
+    margin-top: 2vh;
+    text-align: center;
+    font-size: 16vw;
+}
+
+.whatever {
+    margin: 5vh 7vw;
+}
+
+button {
+    height: 5vh;
+    padding: 1vh 3vw;
+    background-color: #ffb703;
+    border-width: 0px;
+    font-size: 2.5vh;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+button:active {
+    background-color: #bb8703;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.visible > *, .invisible > * {
+    visibility: inherit
+}
+
+.address_change, .tel_change {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+input {
+    width: 70vw;
+    height: 4vh;
+    font-size: 2.5vh;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
