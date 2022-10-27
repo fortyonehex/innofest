@@ -50,7 +50,7 @@ function getLocation() {
 }
 
 getLocation();
-setInterval(getLocation, 5000);
+// setInterval(getLocation, 5000);
 
 var mouseTimer;
 function mouseDown() { 

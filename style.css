@@ -156,3 +156,12 @@ input {
     font-size: 2.5vh;
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
+
+.penisman {
+    position: fixed;
+    height: 10vh;
+    width: 10vh;
+    fill: #fff;
+    bottom: 2vh;
+    left: 15vw;
+}
